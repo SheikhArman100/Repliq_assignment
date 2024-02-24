@@ -1,13 +1,13 @@
 "use client"
 import { products } from "@/lib/data.js";
 import Image from "next/image.js";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 
 const ProductList = ({  query,filter }) => {
   const filteredData = useMemo(() => {
-    let filteredProducts = products; // Start with all products
+    let filteredProducts = products; 
 
-    // Apply category filter if available
+    
     if (filter) {
       filteredProducts = filteredProducts.filter(
         (product) =>product.category.toLowerCase()===filter.toLowerCase()
