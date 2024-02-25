@@ -1,9 +1,13 @@
 "use client"
 import { products } from "@/lib/data.js";
+import { addToCart, useCart } from "@/lib/store/cartStore.js";
+import { Check, Plus, ShoppingCart } from "lucide-react";
 import Image from "next/image.js";
 import { useMemo } from "react";
 
 const ProductList = ({  query,filter }) => {
+  const cart =useCart()
+  console.log(cart)
   const filteredData = useMemo(() => {
     let filteredProducts = products; 
 
@@ -29,7 +33,7 @@ const ProductList = ({  query,filter }) => {
         <p className="w-full text-center  col-span-5 ">No products found</p>
       ) : (
         filteredData.map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <ProductCard key={index} product={product}  carts={cart}/>
         ))
       )}
     </div>
@@ -38,9 +42,11 @@ const ProductList = ({  query,filter }) => {
 
 export default ProductList;
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product,carts }) => {
+  const isInCarts=carts?.some((cart)=>cart.title===product.title)
+  
   return (
-    <div className="flex flex-col border border-zinc-400  text-zinc-600">
+    <div className="relative flex flex-col border border-zinc-400  text-zinc-600">
       <div className="relative w-full aspect-[1/1.2] bg-gray-500">
         <Image
           src={product.image}
@@ -54,6 +60,10 @@ const ProductCard = ({ product }) => {
       <h4 className="text-center text-base font-semibold p-1  border-t border-t-zinc-400">
         {product.title}
       </h4>
+      <button className="absolute right-2 top-1 p-2 bg-indigo-400 rounded-full">
+        {isInCarts?<Check className="size-5 stroke-white"/>:<Plus className="size-5 stroke-white"  onClick={()=>addToCart(product)}/>}
+      
+      </button>
     </div>
   );
 };
