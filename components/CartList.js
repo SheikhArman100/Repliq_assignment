@@ -29,15 +29,15 @@ const CartList = () => {
 
 const CartItem=({cartItem})=>{
     return(
-        <div className='flex-1 grid grid-cols-4 border border-zinc-400 p-3.5 text-zinc-500'>
-            <h5 className='text-2xl font-bold '>{cartItem.title}</h5>
-            <span className='text-xl font-bold text-right'>${cartItem.price}</span>
+        <div className='flex-1 grid grid-cols-2 sm:grid-cols-4   border border-zinc-400 p-3.5 text-zinc-500'>
+            <h5 className='text-base sm:text-xl md:text-2xl font-bold xl:col-span-2 2xl:col-span-1'>{cartItem.title}</h5>
+            <span className='text-sm sm:text-lg md:text-xl font-bold text-right hidden sm:block xl:hidden 2xl:block'>${cartItem.price}</span>
             <div className='flex items-center gap-x-4  justify-end'>
-              <button className='p-1 bg-zinc-500 text-white rounded-full' onClick={() => decreaseQuantity(cartItem.title)}><Minus/></button>
+              <button className='p-1 bg-zinc-500 text-white rounded-full' onClick={() => decreaseQuantity(cartItem.title)}><Minus className='size-3 sm:size-4'/></button>
               <p className='text-xl font-semibold'>{cartItem.quantity}</p>
-              <button className='p-1 bg-zinc-500 text-white rounded-full ' onClick={()=>increaseQuantity(cartItem.title)}><Plus/></button>
+              <button className='p-1 bg-zinc-500 text-white rounded-full ' onClick={()=>increaseQuantity(cartItem.title)}><Plus className='size-3 sm:size-4'/></button>
             </div>
-            <h4 className='text-xl font-bold text-right'>${cartItem.totalPrice}</h4>
+            <h4 className='text-sm sm:text-lg md:text-xl font-bold text-right hidden sm:block'>${cartItem.totalPrice}</h4>
 
 
         </div>

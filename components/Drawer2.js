@@ -7,22 +7,22 @@ import React from 'react'
 import logo from "@/public/assets/logo.png"
 import Image from 'next/image.js'
 
-const Drawer = () => {
+const Drawer2 = () => {
   return (
-    <div className="drawer  flex-[1_1_0%] hidden xl:block">
-      <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+    <div className="drawer  flex-[0_0_0%] block xl:hidden">
+      <input id="my-drawer2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
-        <label htmlFor="my-drawer" className="cursor-pointer">
+        <label htmlFor="my-drawer2" className="cursor-pointer">
           <Menu size={28} />
         </label>
       </div>
       <div className="drawer-side  z-[2]">
         <label
-          htmlFor="my-drawer"
+          htmlFor="my-drawer2"
           aria-label="close sidebar"
-          className="drawer-overlay "
+          className="drawer-overlay"
         ></label>
-        <aside className="menu w-72 min-h-full z-10 flex flex-col items-center  bg-gray-100  px-4 py-16 ">
+        <aside className="menu w-72 min-h-full flex flex-col items-center  bg-gray-100 dark:bg-zinc-900 px-4 py-16 ">
           <Image src={logo} alt='log'/>
           <div className='mt-4'>
             <h5 className='text-lg text-center font-semibold'>Location</h5>
@@ -62,4 +62,4 @@ export const ActiveLink = ({href,icon,label}) => {
   );
 }
 
-export default Drawer
+export default Drawer2

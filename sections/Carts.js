@@ -6,7 +6,7 @@ import React from 'react'
 
 const Carts = () => {
   return (
-    <section className='w-full px-4'>
+    <section className='w-full px-4 '>
       <Navbar/>
       <div className=' w-full py-4 px-4 flex items-center justify-between  bg-zinc-200 font-semibold text-indigo-400 rounded-lg '>
         <div className='flex items-center gap-x-3 '>

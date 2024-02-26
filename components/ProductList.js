@@ -28,7 +28,7 @@ const ProductList = ({  query,filter }) => {
     return filteredProducts;
   }, [ filter, query]);
   return (
-    <div className="py-3 px-6 grid grid-cols-5 gap-3  items-center ">
+    <div className="py-3 px-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 2xl:grid-cols-5 gap-3  items-center last:col-span-2 mx-auto ">
       {filteredData.length === 0 ? (
         <p className="w-full text-center  col-span-5 ">No products found</p>
       ) : (
