@@ -7,7 +7,6 @@ import { useMemo } from "react";
 
 const ProductList = ({  query,filter }) => {
   const cart =useCart()
-  console.log(cart)
   const filteredData = useMemo(() => {
     let filteredProducts = products; 
 
